@@ -126,12 +126,13 @@ public abstract class NeoBootstrapper implements Bootstrapper
 
         config.setLogger( log );
 
-        if ( requestedMemoryExceedsAvailable( config ) )
-        {
-            log.error( format( "Invalid memory configuration - exceeds physical memory. Check the configured values for %s and %s",
-                    GraphDatabaseSettings.pagecache_memory.name(), BootloaderSettings.max_heap_size.name() ) );
-            return INVALID_CONFIGURATION_ERROR_CODE;
-        }
+        // if ( requestedMemoryExceedsAvailable( config ) )
+        // {
+        //     log.error( format( "Invalid memory configuration - exceeds physical memory. Check the configured values for %s and %s",
+        //             GraphDatabaseSettings.pagecache_memory.name(), BootloaderSettings.max_heap_size.name() ) );
+        //     return INVALID_CONFIGURATION_ERROR_CODE;
+        // }
+        log.warn( "Skip to check if exceeds physical memory." );
 
         try
         {
